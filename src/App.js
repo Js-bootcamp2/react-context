@@ -1,23 +1,32 @@
+import {useState, useContext} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import BlockA from './components/BlockA/BlockA';
+import BlockB from './components/BlockB/BlockB';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const value = useContext(MyContext);
+
+  const handleCheckTheme = (e) => {
+    const { checked } = e.target;
+    setIsDarkMode(checked)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <label htmlFor="theme">Dark Mode
+        <input 
+          checked={isDarkMode} 
+          onChange={handleCheckTheme} 
+          id="theme" 
+          type="checkbox" 
+        />
+      </label>
+
+      <BlockA mode={isDarkMode}/>
+      <BlockB mode={isDarkMode}/>
+
     </div>
   );
 }
