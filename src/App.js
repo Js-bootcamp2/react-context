@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react';
+import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import BlockA from './components/BlockA/BlockA';
@@ -6,7 +6,6 @@ import BlockB from './components/BlockB/BlockB';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const value = useContext(MyContext);
 
   const handleCheckTheme = (e) => {
     const { checked } = e.target;
