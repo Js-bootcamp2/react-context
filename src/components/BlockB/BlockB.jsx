@@ -1,9 +1,11 @@
+import {useContext} from 'react'
 import BlockChild from '../BlockChild/BlockChild';
+import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
 export default function BlockB({mode}) {
-  const isDark = mode === true;
+  const theme = useContext(ThemeContext);
 
   const style = {
-    background: isDark ? 'gray' : 'blue',
+    background: theme.background,
     width: '400px',
     height: '200px',
     display: 'flex',
@@ -13,7 +15,7 @@ export default function BlockB({mode}) {
 
   return (
     <div style={style}>
-      <BlockChild mode={mode} text="BLOCK B"/>
+      <BlockChild text="BLOCK B"/>
     </div>
   )
 }

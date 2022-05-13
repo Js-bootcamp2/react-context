@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
 
-function BlockChild({mode, text}) {
+function BlockChild({text}) {
+  const theme = useContext(ThemeContext);
   const style = {
-    color: mode ? 'black' : 'white',
+    color: theme.foreground
   }
 
-  console.log('render', text)
   return (
     <div style={style}>{text}</div>
   )
